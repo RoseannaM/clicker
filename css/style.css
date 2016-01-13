@@ -3,17 +3,15 @@ body {
     font-family: 'Berkshire Swash', cursive;
 }
 
-img {
+
+.cat {
+    display : block;
+    margin : auto;
+    width: 400px;
+    height: 400px;
     animation: tossing 5s;
     animation-iteration-count: infinite;
     border: 5px solid #ffffff;
-    width: 500px;
-    height: 500px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    margin-left: -250px;
-    margin-top: -250px;
 }
 
 h1, h3 {
