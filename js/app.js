@@ -1,9 +1,9 @@
 /*
-//step one. One Cat
-var i = 0;   //Global variable. Starting clicks at 0
+ //step one. One Cat
+ var i = 0;   //Global variable. Starting clicks at 0
 
-$('#cat-img').click(function() {//setting click function on cat img
-    i ++ ; $('h2').html(i); //increment i
+ $('#cat-img').click(function() {//setting click function on cat img
+ i ++ ; $('h2').html(i); //increment i
  });*/
 
 
@@ -48,50 +48,50 @@ var cats = [ //cat array object
 ];
 
 /*var catimg = cats.slice(0,1); //trying to access img from cat object
-console.log(catimg);*/
+ console.log(catimg);*/
 
 /*
-//Step 2, two cats
-function appendCats(cats){// cats is the array of objects
-    cats.forEach(function(cat){// for each cat in the cat object. The function is called for EACH cat
-        var catdiv = $('<div/>');
-        var cattitle = $('<h3/>');
-        cattitle.text(cat.name);
-        catdiv.append(cattitle);
+ //Step 2, two cats
+ function appendCats(cats){// cats is the array of objects
+ cats.forEach(function(cat){// for each cat in the cat object. The function is called for EACH cat
+ var catdiv = $('<div/>');
+ var cattitle = $('<h3/>');
+ cattitle.text(cat.name);
+ catdiv.append(cattitle);
 
-        var newimage = $('<img/>', {
-            src: cat.img,
-            id:  cat.id,
-            class: "cat"
-        });
+ var newimage = $('<img/>', {
+ src: cat.img,
+ id:  cat.id,
+ class: "cat"
+ });
 
-        catdiv.append(newimage);
-        /!*newimage.src = cat.img;
-        newimage.id = cat.id;
-        newimage.className = ("cat");*!/
+ catdiv.append(newimage);
+ /!*newimage.src = cat.img;
+ newimage.id = cat.id;
+ newimage.className = ("cat");*!/
 
 
-        var catclicks = $('<h2/>');
-        catclicks.text(cat.clicks);
-        catdiv.append(catclicks);
+ var catclicks = $('<h2/>');
+ catclicks.text(cat.clicks);
+ catdiv.append(catclicks);
 
-        $("body").append(catdiv);
+ $("body").append(catdiv);
 
-        newimage.click(function(){ //setting click function on cat images
-            cat.clicks++;
-            catclicks.text(cat.clicks);
-        });
+ newimage.click(function(){ //setting click function on cat images
+ cat.clicks++;
+ catclicks.text(cat.clicks);
+ });
 
-    })
-}
-appendCats(cats);
-*/
+ })
+ }
+ appendCats(cats);
+ */
+
 
 //Step 3, Three cats.
 
-function appendCats(cats){
-    cats.forEach(function(cat){
-        /*var catdiv = $('<div/>');*/
+function appendCats(cats) {
+    cats.forEach(function (cat) {
         var catlist = $('<li/>'); //create li element
         var catbutton = $('<button/>');//create button element
         var cattitle = $('<h3/>');//create h3 element
@@ -100,41 +100,27 @@ function appendCats(cats){
         catlist.append(catbutton); //append button to li
         $("ul").append(catlist); //append li to ul
 
-        //cat clicks
-        /*var catclicks = $('<h2/>');//cat click h2
-        catclicks.text(cat.clicks);//cat click text is the cat clicks
-        $("#catclicks").append(catclicks);*/
 
-        //images
+        //Create cat images images
         var newimage = $('<img/>', {
             src: cat.img,
-            id:  cat.id,
+            id: cat.id,
             class: "cat"
         });
 
-        //buttons are linked to images
-        catbutton.click(function() {//button does two things. Puts image on the page and adds clicks
-            $("#emptyBox").empty();
-            $("#emptyBox").append(newimage)
-            var catclickheader = $('<h2/>');
-            catclickheader.text("Clicks");
-            $("#emptyBox").append(catclickheader);
+        //buttons events
+        catbutton.click(function () {//button does two things. Puts image on the page and adds clicks
+            $("#catimage").empty();
+            $("#clicks").empty();
+            $("#catimage").append(newimage);
+            newimage.click(function () { //setting click function on cat images
+                cat.clicks++;
+                $("#clicks").text(cat.clicks);
+            });
         });
-
     })
 }
 
 appendCats(cats);
 
 
-/*
-$('button').click(function() {//button does two things. Puts image on the page and adds clicks
-    var newimage = $('<img/>', {
-        src: cats.img,
-        id:  cats.id,
-        class: "cat"
-    });
-    $("#emptyBox").append(newimage)
-
-});
-*/
